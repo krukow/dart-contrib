@@ -1,19 +1,5 @@
-interface TestRunner factory SimpleRunner {
-  TestRunner();
-
-  TestResult run(var test [TestResult result]);
-
-}
-
-
-class SimpleRunner implements TestRunner {
-
-  SimpleRunner();
-
-  factory TestRunner() {
-    return new SimpleRunner();
-  }
-
+class TestRunner {
+  const TestRunner();
   TestResult run(var test, [TestResult result=null]) {
     if (result == null) result = new TestResult();
     if (test is TestCase) {
@@ -70,7 +56,6 @@ class SimpleRunner implements TestRunner {
       result.fail(suite,suite.name, suiteTime, result:testSuiteResult);
     }
     return result;
-
   }
 
 }

@@ -21,38 +21,9 @@ class BTest extends TestCase {
 
 main() {
   var runner = new TestRunner();
-  var ts = new TestSuite();
+  var ts = new TestSuite("Everything");
   ts.add(new ATest());
   ts.add(new BTest());
   var tr = runner.run(ts);
-
-  tr.results.forEach((k,tr) {
-      pp(tr);
-      if (tr['result'] != null) {
-        pp("Test suite results:");
-        pp("    defects:");
-        tr['result'].defects().forEach((k,tr) {
-            pp(tr);
-            if (tr['result'] != null) {
-              pp("Test results:");
-              pp("defects:");
-              pp(tr['result'].defects());
-              pp("passed:");
-              pp(tr['result'].passed());
-            }
-          });
-        pp("    passed:");
-        tr['result'].passed().forEach((k,tr) {
-            pp(tr);
-            if (tr['result'] != null) {
-              pp("Test results:");
-              pp("defects:");
-              pp(tr['result'].defects());
-              pp("passed:");
-              pp(tr['result'].passed());
-            }
-          });
-      }
-    });
-
+  new TestReporter().report(tr);
 }
