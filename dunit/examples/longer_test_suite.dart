@@ -2,16 +2,15 @@
 #import("../dunit_dsl.dart");
 #import("../dunit_reporters.dart");
 #import("../../pprint/pprint.dart");
-#source("FirstTestCase.dart");
-#source("SecondTestCase.dart");
-#source("ThirdTestCase.dart");
+#source("tests/FirstTestCase.dart");
+#source("tests/SecondTestCase.dart");
+#source("tests/ThirdTestCase.dart");
 
 main() {
 
-  run(test: new TestSuite(name: "Sample Suite",
-                          tests: [new FirstTestCase(),
-                                  new SecondTestCase(),
-                                  new ThirdTestCase()]),
-      reporter:new ConsoleReporter());
+  report(test: new TestSuite(name: "Sample Suite",
+                             tests: [new FirstTestCase(),
+                                     new SecondTestCase(),
+                                     new ThirdTestCase()]));
 
 }
