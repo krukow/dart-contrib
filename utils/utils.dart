@@ -41,3 +41,12 @@ map_with_index(coll, f [context]) {
 map(coll, f) {
   return map_with_index(coll, (x,_,__)=>f(x));
 }
+
+reduce(coll, init, f) {
+  if (coll.length == 0) return init;
+  var cur = init;
+  coll.forEach((v) {
+      cur = f(cur,v);
+    });
+  return cur;
+}
