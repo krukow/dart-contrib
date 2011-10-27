@@ -1,6 +1,6 @@
 #library("contrib.utils");
 
-time(action [watches]) {
+time(action, [watches]) {
   var actionTimer = new StopWatch();
   if (watches == null) {
     watches = [];
@@ -24,10 +24,10 @@ time(action [watches]) {
 final _NOTHING = const Object();
 
 //Maps arent collections, collections dont have map
-map_with_index(coll, f [context]) {
+map_with_index(coll, f, [context]) {
   var res = [];
   int idx=0;
-  coll.forEach((k [v=_NOTHING]) {
+  coll.forEach((k, [v=_NOTHING]) {
       if (v === _NOTHING) {
         res.add(f(k, idx, context));
       } else {

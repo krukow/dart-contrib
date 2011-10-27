@@ -1,6 +1,6 @@
 #library("contrib.pprint");
 
-pstr(obj [increment="  ", prefix="", content="  ", suffix="", newline=true]) {
+pstr(obj, [increment="  ", prefix="", content="  ", suffix="", newline=true]) {
   StringBuffer res = new StringBuffer();
   _line(str, indent, [newline=true]) {
     res.add(indent);
@@ -22,7 +22,6 @@ pstr(obj [increment="  ", prefix="", content="  ", suffix="", newline=true]) {
     _entries(res, obj, increment, content, newline);
     _line("}", suffix, newline:false);
   } else if (obj is Queue) {
-    _line("Queue[ ");
     _line("Queue[", prefix, newline:newline);
     _entries(res, obj, increment, content, newline);
     _line("]", suffix, newline:false);
@@ -39,7 +38,7 @@ pstr(obj [increment="  ", prefix="", content="  ", suffix="", newline=true]) {
 }
 
 
-pp(obj [indent="  ", increment="  ", newline=true]) {
+pp(obj, [indent="  ", increment="  ", newline=true]) {
   print(pstr(obj,
              increment: increment,
              content: indent,
@@ -58,9 +57,9 @@ p(obj) {
 
 final _NOTHING = const Object();
 
-_entries(res, obj, inc, indent, newline [separator=":"]) {
+_entries(res, obj, inc, indent, newline, [separator=":"]) {
   var cnt = obj.length;
-  obj.forEach((k [v = _NOTHING]) {
+  obj.forEach((k, [v = _NOTHING]) {
       cnt -= 1;
       res.add(pstr(k,
                    increment:inc,
