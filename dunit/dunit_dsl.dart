@@ -28,6 +28,10 @@ run([test=null,
   return runner.run(test);
 }
 
+suite([tests = const [],
+       as="TestSuite"]) {
+  return new TestSuite(name:as, tests:tests);
+}
 report([test=null,
         as="Test",
         TestRunner runner=const TestRunner(),
