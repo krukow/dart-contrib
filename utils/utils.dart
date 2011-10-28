@@ -38,6 +38,20 @@ map_with_index(coll, f, [context]) {
   return res;
 }
 
+list2map(coll, [Map m = null]) {
+  if (m == null) m = {};
+  coll.forEach((v) => m[v[0]] = v[1]);
+  return m;
+}
+
+zipmap(keys,vals) {
+  Map m = {};
+  map_with_index(keys,(k,i,_) {
+      m[k] = vals[i];
+    });
+  return m;
+}
+
 map(coll, f) {
   return map_with_index(coll, (x,_,__)=>f(x));
 }
