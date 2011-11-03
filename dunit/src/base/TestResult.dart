@@ -8,12 +8,12 @@ class TestResult {
 
   TestResult() : results = {},_index=0;
 
-  fail(test [name, time, message, stackTrace, result]) {
+  fail(test, [name, time, message, stackTrace, result]) {
     add(FAILURE, test, name, time, message,stackTrace,result);
     return this;
   }
 
-  pass(test [name, time, message, result]) {
+  pass(test, [name, time, message, result]) {
     add(SUCCESS, test, name, time, message, null, result);
     return this;
   }

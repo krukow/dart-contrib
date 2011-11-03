@@ -4,7 +4,7 @@
 
 class ClosureTestCase extends TestCase {
   final f;
-  ClosureTestCase(this.f [desc="Test"]): super(desc);
+  ClosureTestCase(this.f, [desc="Test"]): super(desc);
   tests() {
     var m = new Map();
     m[name] = f;
@@ -12,7 +12,7 @@ class ClosureTestCase extends TestCase {
   }
 }
 
-test_case(f [as="Test"]) {
+test_case(f, [as="Test"]) {
   return new ClosureTestCase(f,as);
 }
 

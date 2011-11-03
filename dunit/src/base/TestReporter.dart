@@ -14,7 +14,7 @@ class TestReporter {
     return color(str,'33');
   }
 
-  print_defects(defects [indent=""]) {
+  print_defects(defects, [indent=""]) {
     defects.forEach((num, r) {
         print("${indent}${r['name']}: ${r['outcome']} (${r['time']} us)");
         print("${indent}${r['message']}");
@@ -23,14 +23,14 @@ class TestReporter {
       });
 
   }
-  print_passed(passed [indent=""]) {
+  print_passed(passed, [indent=""]) {
     passed.forEach((num, r) {
         print("${indent}${r['name']}: ${r['outcome']} (${r['time']} us)");
       });
 
   }
 
-  void report(TestResult res [indent=""]) {
+  void report(TestResult res, [indent=""]) {
     var passed = res.passed();
     var defects = res.defects();
 

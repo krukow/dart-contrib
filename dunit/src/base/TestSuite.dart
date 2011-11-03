@@ -3,8 +3,7 @@ class TestSuite {
   final String name;
   TestSuite([name="TestSuite", List tests = const []]) :
     this.name=name,
-    testCases = <TestCase>[]
-  {
+    testCases = <TestCase>[] {
     for (var test in tests) {
       add(test);
     }

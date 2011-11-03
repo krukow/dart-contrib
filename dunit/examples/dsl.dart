@@ -6,6 +6,7 @@
 
 
 main() {
+
   report(test: () { Expect.equals(2,2); },
          as:"Expect two equals two");
 

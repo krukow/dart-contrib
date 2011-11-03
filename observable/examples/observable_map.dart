@@ -7,5 +7,13 @@
 
 main() {
   Map<String, int> m = {"Karl":1, "Krukow":2};
-  print(new ObservableMap.from(m));
+  var o = new ObservableMap.from(m);
+
+  o.addKeyListener("Karl", (es) => p(es.events));
+  o.addChangeListener((e) => p(e));
+  o["Karl"] = 42;
+
+
+
+
 }
